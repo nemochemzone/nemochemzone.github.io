@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChemZone Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <!-- Particles background -->
+      <div id="particles-js"></div>
+      
+      <!-- Chemistry-themed molecule animations -->
+      <div class="floating-molecules">
+        <!-- Linear molecule -->
+        <div class="molecule linear-molecule">
+          <div class="atom"></div>
+          <div class="bond"></div>
+          <div class="atom"></div>
+          <div class="bond"></div>
+          <div class="atom"></div>
+        </div>
+        <!-- Linear molecule -->
+        <div class="molecule linear-molecule">
+            <div class="atom"></div>
+            <div class="bond"></div>
+            <div class="atom"></div>
+            <div class="bond"></div>
+            <div class="atom"></div>
+          </div>
+      </div>
+      
+      <div class="main">
+        <div class="logo">
+          <img src="logo.png" alt="ChemZone Academy Logo">
+        </div>
+        <nav class="navigation">
+          <ul>
+            <li class="active"><a href="#"><span class="navLink">Home</span></a></li>
+            <li><a href="#"><span class="navLink">About Us</span></a></li>
+            <li class="course-dropdown"><a href="#"><span class="navLink">Courses <span class="dropdown-arrow">▼</span></span></a>
+              <div class="dropdown-content">
+                <a href="#">CHEM Pre สอวน.</a>
+                <a href="#">Course 2</a>
+                <a href="#">Course 3</a>
+                <a href="#">Course 4</a>
+                <a href="#">Course 5</a>
+                <a href="#">Course 6</a>
+              </div></li>
+            <li class="auth-dropdown">
+              <a href="#"><span class="navLink">Login <span class="dropdown-arrow">▼</span></span></a>
+              <div class="dropdown-content">
+                <a href="#" id="signInLink" onclick="openLoginForm()">Sign In</a>
+                <a href="#" id="signUpLink" onclick="openRegisterForm()">Sign Up</a>
+              </div>
+            </li>
+            <li><a href="#"><span class="navLink">Contacts</span></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="heroContent">
+        <h1 class="main-title">Welcome to ChemZone Academy</h1>
+        </p>
+        <p class="subtitle">Empowering Passionate Chemistry Students with High-Quality Education</p>
+        <button class="ctaButton" onclick="openRegisterForm()">Start Your Chemical Journey</button>
+        <button class="ctaButton login-btn" onclick="openLoginForm()">Already a Member? Login</button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Authentication Form Modal -->
+  <div class="auth-modal" id="authModal">
+    <!-- Login Form -->
+    <div class="auth-page login-page" id="login">
+      <div class="auth-content">
+        <div class="top">
+          <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
+          <header>Login</header>
+        </div>
+        <form id="loginForm" method="post" action="login-process.php">
+          <div class="input-box">
+            <input type="text" name="username" class="input-field" placeholder="Username or Email" required>
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" name="password" class="input-field" placeholder="Password" required>
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <input type="submit" class="submit" value="Sign In">
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="login-check" name="remember">
+              <label for="login-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Forgot password?</a></label>
+            </div>
+          </div>
+        </form>
+        <div class="back-home">
+          <a href="#" class="home-button" onclick="closeAuthModal()">
+            <i class='bx bx-home'></i> Back to Home
+          </a>
+        </div>
+      </div>
+      <div class="modal-close" onclick="closeAuthModal()">×</div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="auth-page register-page" id="register">
+      <div class="auth-content">
+        <div class="top">
+          <span>Have an account? <a href="#" onclick="login()">Login</a></span>
+          <header>Sign Up</header>
+        </div>
+        <form id="registerForm" method="post" action="register-process.php">
+          <div class="two-forms">
+            <div class="input-box">
+              <input type="text" name="firstname" class="input-field" placeholder="Firstname" required>
+              <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+              <input type="text" name="lastname" class="input-field" placeholder="Lastname" required>
+              <i class="bx bx-user"></i>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="email" name="email" class="input-field" placeholder="Email" required>
+            <i class="bx bx-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" name="password" class="input-field" placeholder="Password" required>
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" name="confirm_password" class="input-field" placeholder="Confirm Password" required>
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <input type="submit" class="submit" value="Register">
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="register-check" name="terms" required>
+              <label for="register-check"> I agree to terms</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Terms & conditions</a></label>
+            </div>
+          </div>
+        </form>
+        <div class="back-home">
+          <a href="#" class="home-button" onclick="closeAuthModal()">
+            <i class='bx bx-home'></i> Back to Home
+          </a>
+        </div>
+      </div>
+      <div class="modal-close" onclick="closeAuthModal()">×</div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Particles.js configuration
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: ["#ffffff", "#ffffff", "#ffffff", "#ffffff"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: false },
+        size: { value: 5, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "bounce",
+          bounce: true
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+
+    // Navigation active state handling
+    const navLinks = document.querySelectorAll('.navigation li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Don't remove active class for dropdown click
+        if (!this.parentElement.classList.contains('auth-dropdown')) {
+          // Remove active class from all links
+          navLinks.forEach(item => item.parentElement.classList.remove('active'));
+          // Add active class to clicked link
+          this.parentElement.classList.add('active');
+        }
+      });
+    });
+
+    // Show button after heading animation completes
+    setTimeout(function() {
+      document.querySelector('.ctaButton').classList.add('show');
+      document.querySelector('.login-btn').classList.add('show');
+    }, 1000);
+
+    // Authentication modal functions
+    function openLoginForm() {
+      document.getElementById('authModal').style.display = 'block';
+      login();
+    }
+
+    function openRegisterForm() {
+      document.getElementById('authModal').style.display = 'block';
+      register();
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').style.display = 'none';
+    }
+
+    function login() {
+      var loginPage = document.getElementById("login");
+      var registerPage = document.getElementById("register");
+      
+      loginPage.style.display = "block";
+      registerPage.style.display = "none";
+      
+      loginPage.style.animation = "slideInRight 0.5s forwards";
+    }
+
+    function register() {
+      var loginPage = document.getElementById("login");
+      var registerPage = document.getElementById("register");
+      
+      loginPage.style.display = "none";
+      registerPage.style.display = "block";
+      
+      registerPage.style.animation = "slideInLeft 0.5s forwards";
+    }
+
+    // Close modal when clicking outside the form
+    window.onclick = function(event) {
+      var modal = document.getElementById('authModal');
+      if (event.target == modal) {
+        closeAuthModal();
+      }
+    }
+    
+    // Animate molecules randomly
+    function animateMolecules() {
+      const molecules = document.querySelectorAll('.molecule');
+      
+      molecules.forEach(molecule => {
+        // Random position within viewport
+        const posX = Math.random() * 80 + 10; // 10-90% of width
+        const posY = Math.random() * 80 + 10; // 10-90% of height
+        
+        // Random rotation
+        const rotation = Math.random() * 360;
+        
+        // Apply transformations
+        molecule.style.left = `${posX}%`;
+        molecule.style.top = `${posY}%`;
+        molecule.style.transform = `rotate(${rotation}deg)`;
+      });
+    }
+    
+    // Initial placement and animation
+    animateMolecules();
+    
+    // Continue animation at intervals
+    setInterval(animateMolecules, 15000);
+  </script>
+  
+</body>
+</html>
